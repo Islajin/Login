@@ -12,15 +12,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var idField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    //경고창을 표시하는 코드
+    func showAlert(message : String) {
+        let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        
+        present(alert, animated : true)
+    }
     
     @IBAction func login(_ sender: Any) {
-        let id = idField.text!
-        let password = passwordField.text!
         
-        if id.isEmpty || password.isEmpty{
-            print("계정을 입력하세요.")
+        guard let id = idField.text, !id.isEmpty else {
+         showAlert(message: "아이디를 입력하세요.")
             return
         }
+       
+        guard let password=passwordField.text,!password.isEmpty else {
+            showAlert(message: "비밀번호를 입력하세요.")
+            return
+        }
+        
         
         if id == "kwcoding"  && password == "1234"{
                 resultLabel.text="로그인 성공"
