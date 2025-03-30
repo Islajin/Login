@@ -14,6 +14,18 @@ class ViewController: UIViewController {
     
     
     @IBAction func login(_ sender: Any) {
+        let id = idField.text!
+        let password = passwordField.text!
+        
+        if id == "kwcoding" {
+            if password == "1234" {
+                resultLabel.text="로그인 성공"
+            }else {
+                resultLabel.text="로그인 실패"
+            }
+        }else {
+            resultLabel.text="로그인 실패"
+        }
     }
     
     @IBOutlet weak var resultLabel: UILabel!
