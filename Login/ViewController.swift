@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "확인", style: .default)
-        
+        alert.addAction(okAction)
         present(alert, animated : true)
     }
     
