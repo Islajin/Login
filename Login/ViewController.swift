@@ -17,12 +17,13 @@ class ViewController: UIViewController {
         let id = idField.text!
         let password = passwordField.text!
         
-        if id == "kwcoding" {
-            if password == "1234" {
+        if id.isEmpty || password.isEmpty{
+            print("계정을 입력하세요.")
+            return
+        }
+        
+        if id == "kwcoding"  && password == "1234"{
                 resultLabel.text="로그인 성공"
-            }else {
-                resultLabel.text="로그인 실패"
-            }
         }else {
             resultLabel.text="로그인 실패"
         }
