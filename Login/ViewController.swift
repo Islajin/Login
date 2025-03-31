@@ -73,14 +73,18 @@ extension ViewController : UITextFieldDelegate {
         return false
     }
     
-    //아이디의 길이에 제한주기
+    //아이디의 길이에 제한주기와 제한된 길이에 입력시 textField에 색상주기
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if textField  == idField {
             let cnt = textField.text? .count ?? 0
-            let isValdId = (6 ... 12).contains(cnt)
+            let isValidId = (6 ... 12).contains(cnt)
             
+            textField.layer.borderWidth = isValidId ? 0 : 1
+            textField.layer.borderColor = isValidId ? nil :UIColor.red.cgColor
+            textField.layer.cornerRadius = isValidId ? 0 : 5
+            textField.tintColor = isValidId ? nil : .red
             
-            return isValdId
+            return isValidId
         }
         
         return true
