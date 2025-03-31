@@ -73,4 +73,19 @@ extension ViewController : UITextFieldDelegate {
         return false
     }
     
+    //아이디의 길이에 제한주기
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField  == idField {
+            let cnt = textField.text? .count ?? 0
+            let isValdId = (6 ... 12).contains(cnt)
+            
+            
+            return isValdId
+        }
+        
+        return true
+    }
+    
 }
+
+
