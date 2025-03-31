@@ -56,3 +56,21 @@ class ViewController: UIViewController {
     }
 }
 
+
+extension ViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print(#function , textField)
+        
+        switch textField {
+        case idField:
+            passwordField.becomeFirstResponder()
+        case passwordField:
+            login(self) //코드가 겹치기 때문에 액션login 을 호출할 숭 있음, 어차피 액션 안에서 이 샌더 파라미터를 쓰지 않고 있으니까 어떤 걸 보내도 문제가 안됨
+        default :
+            break
+            
+        }
+        return false
+    }
+    
+}
